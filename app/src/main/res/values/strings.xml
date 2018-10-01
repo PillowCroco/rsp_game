@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">rsp_game</string>
+    <string name="result">not determined yet</string>
+    <string name="statistics">0승 0무 0패</string>
+</resources>
