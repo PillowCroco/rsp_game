@@ -8,7 +8,7 @@
     tools:layout_editor_absoluteY="25dp">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
