@@ -53,11 +53,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         draw = 0;
         Toast.makeText(this, "Data Reset", Toast.LENGTH_SHORT).show();
         btn_cpu.setImageResource(R.drawable.ic_launcher_background);
+        text_result.setText("초기화했다리");
+        this.result();
     }
-//
-//    public void result(){
-//        text_stat.setText(win, "승 ", lose, "패 ", draw,"무");
-//    }
+
+    public void result() {
+        text_stat.setText(win + "승 " + draw + " 무" + lose + "패");
+    }
 
     public void cpu_show(int cpu) {
         if (cpu == 0) {
@@ -93,13 +95,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (player + 1 == cpu || player - 2 == cpu) {
             win++;
             Toast.makeText(this, "You Win!", Toast.LENGTH_SHORT).show();
+            text_result.setText("이겼다 추카");
         } else if (player == cpu) {
             draw++;
             Toast.makeText(this, "Draw!", Toast.LENGTH_SHORT).show();
+            text_result.setText("비겼다 흠");
         } else {
             lose++;
             Toast.makeText(this, "You Lose!", Toast.LENGTH_SHORT).show();
+            text_result.setText("졌다 까비");
         }
+
+        this.result();
 
     }
 }
