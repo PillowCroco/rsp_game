@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageButton btn_rock;
     private ImageButton btn_scissors;
     private ImageButton btn_paper;
+    private ImageButton btn_cpu;
     private TextView btn_reset;
 
     private TextView text_result;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_scissors = findViewById(R.id.btn_scissors);
         btn_paper = findViewById(R.id.btn_paper);
         btn_reset = findViewById(R.id.btn_reset);
+        btn_cpu = findViewById(R.id.btn_cpu);
 
         text_result = findViewById(R.id.text_result);
         text_stat = findViewById(R.id.text_stat);
@@ -43,6 +45,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_paper.setOnClickListener(this);
         btn_reset.setOnClickListener(this);
 
+    }
+
+    public void reset() {
+        win = 0;
+        lose = 0;
+        draw = 0;
+        Toast.makeText(this, "Data Reset", Toast.LENGTH_SHORT).show();
+        btn_cpu.setImageResource(R.drawable.ic_launcher_background);
+    }
+//
+//    public void result(){
+//        text_stat.setText(win, "승 ", lose, "패 ", draw,"무");
+//    }
+
+    public void cpu_show(int cpu) {
+        if (cpu == 0) {
+            btn_cpu.setImageResource(R.drawable.rock);
+        } else if (cpu == 1) {
+            btn_cpu.setImageResource(R.drawable.scissors);
+        } else {
+            btn_cpu.setImageResource(R.drawable.paper);
+        }
     }
 
     public void onClick(View view) {
@@ -57,13 +81,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (view.getId() == R.id.btn_paper) {
             player = 2;
         } else if (view.getId() == R.id.btn_reset) {
-            win = 0;
-            lose = 0;
-            draw = 0;
+            this.reset();
             return;
         } else {
             return;
         }
+
+        this.cpu_show(cpu);
 
         //win, draw, lose
         if (player + 1 == cpu || player - 2 == cpu) {
